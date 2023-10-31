@@ -19,3 +19,9 @@ tidak akan ditinggikan dan akan tetap berada dalam "tempat" deklarasinya.
 
 # Closures
 merupakan kombinasi antara function dan lingkungan leksikal didalam function tersebut
+
+# var, let & const
+
+var : function scope
+let & const : block scope
+di JavaScript terbaru disarankan menggunakan let & const
