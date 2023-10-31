@@ -5,3 +5,17 @@ sama saja dengan membuat object('{}') bedanya kita bisa menyimpan parameter di d
 
 - Prototype
 dengan prototype kita tidak perlu membuat object baru lagi
+
+# Closures
+
+
+- Excecution context
+    - fase pada Excecution context :
+        - Creation :
+        - Execution :
+- Hoisting : Hoisting adalah perilaku dalam JavaScript di mana deklarasi variabel dan fungsi
+             ditinggikan (hoisted) ke atas lingkup fungsional atau skrip secara implisit(tidak terlihat) saat kode dijalankan.
+Ketika menggunakan let dan const (diperkenalkan dalam ECMAScript 2015), variabel 
+tidak akan ditinggikan dan akan tetap berada dalam "tempat" deklarasinya.
+            
+- Scope
