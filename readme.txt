@@ -6,10 +6,7 @@ sama saja dengan membuat object('{}') bedanya kita bisa menyimpan parameter di d
 - Prototype
 dengan prototype kita tidak perlu membuat object baru lagi
 
-# Closures
-
-
-- Excecution context
+# Excecution context
     - fase pada Excecution context :
         - Creation :
         - Execution :
@@ -19,3 +16,6 @@ Ketika menggunakan let dan const (diperkenalkan dalam ECMAScript 2015), variabel
 tidak akan ditinggikan dan akan tetap berada dalam "tempat" deklarasinya.
             
 - Scope
+
+# Closures
+merupakan kombinasi antara function dan lingkungan leksikal didalam function tersebut
