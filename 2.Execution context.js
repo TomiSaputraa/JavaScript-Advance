@@ -1,7 +1,7 @@
 // 2.1 Execution context, hoisting, scope
 
-console.log(nama);
-var nama = "tomi";
+// console.log(nama);
+// var nama = "tomi"; // undifined karena hoisting
 
 // Creation phase terjadi di context global
 // di fase ini secara default akan di ubah dengan value dibawah
@@ -12,9 +12,8 @@ var nama = "tomi";
 // Excecution phase
 console.log(sayHello());
 
-var nama = "tomi";
-var umur = 33;
-
+var nama = "tomis";
+var umur = 23;
 function sayHello() {
   return `Halo, nama saya ${nama}, umur ${umur}`;
 }
@@ -26,8 +25,8 @@ function sayHello() {
 // hoisting
 
 // scope & contoh nomor urut pengecekan scope (username)
-var nama = "tomi";
-var username = "@tomis";
+// var nama = "tomi";
+// var username = "@tomis";
 // 3. lalu di cek apakah di variabel global juga ada
 
 // 2. lalu di cek apakah di parameter ada

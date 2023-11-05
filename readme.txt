@@ -18,7 +18,9 @@ tidak akan ditinggikan dan akan tetap berada dalam "tempat" deklarasinya.
 - Scope
 
 # Closures
-merupakan kombinasi antara function dan lingkungan leksikal didalam function tersebut
+Closures (penutupan) adalah konsep penting dalam JavaScript, yang mengacu pada kemampuan fungsi untuk "mengingat" dan mengakses 
+variabel dan lingkup (scope) yang ada di luar fungsi tersebut, bahkan setelah fungsi tersebut selesai dieksekusi. Closures memungkinkan 
+Anda untuk membuat lingkup terbatas yang memungkinkan data tetap ada dan dapat digunakan oleh fungsi yang lain.
 
 # var, let & const
 
