@@ -27,3 +27,7 @@ Anda untuk membuat lingkup terbatas yang memungkinkan data tetap ada dan dapat d
 var : function scope
 let & const : block scope
 di JavaScript terbaru disarankan menggunakan let & const
+
+# Higher order function
+Higher-order functions adalah konsep dalam pemrograman JavaScript (dan pemrograman fungsional umumnya) 
+di mana fungsi dapat diteruskan sebagai argumen ke fungsi lain atau dikembalikan oleh fungsi. Ini berarti fungsi dapat dianggap sebagai nilai yang dapat dioperasikan seperti tipe data lainnya.
