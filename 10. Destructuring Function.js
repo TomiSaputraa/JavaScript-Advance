@@ -18,18 +18,18 @@ printPerson(person);
 
 // 2. Destructuring pada Array dalam Fungsi:
 
-// Tanpa Destructuring
 function kalkulasi(a, b) {
   return [a + b, a * b];
 }
 
+// Tanpa Destructuring
 // const jumlah = penjumlahanPerkalian(2, 3)[0];
 // const kali = penjumlahanPerkalian(2, 3)[1];
 
 // Dengan Destructuring
 const [jumlah, kali] = kalkulasi(2, 3);
 
-console.log(kali);
+console.log(jumlah); // 5
 
 // Atau
 
