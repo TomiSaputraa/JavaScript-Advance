@@ -1,7 +1,7 @@
 // For of dan For in
 
 // For of : digunakan untuk mengiterasi melalui nilai-nilai elemen-elemen yang dapat diulang (iterable) seperti array, string, Map, Set, dan sebagainya.
-// For in : igunakan untuk mengiterasi melalui properti-properti suatu objek. Ini cocok untuk objek yang memiliki sifat enumerable seperti objek biasa atau array. Namun, sebaiknya tidak digunakan untuk iterasi array, karena dapat menghasilkan hasil yang tidak diinginkan jika properti yang ditambahkan ke prototipe Array diteruskan ke hasil iterasi.
+// For in : Digunakan untuk mengiterasi melalui properti-properti suatu objek. Ini cocok untuk objek yang memiliki sifat enumerable seperti objek biasa atau array. Namun, sebaiknya tidak digunakan untuk iterasi array, karena dapat menghasilkan hasil yang tidak diinginkan jika properti yang ditambahkan ke prototipe Array diteruskan ke hasil iterasi.
 
 // Contoh
 
@@ -25,8 +25,8 @@ const mhs = ["tomi", "saputra", "andi"];
 // }
 
 // memunculkan index dengan for of
+// karena hasilnya array maka bisa kita destructuring
 for (const [i, m] of mhs.entries()) {
-  // karena hasilnya array maka bisa kita destructuring
   console.log(`${m} adalah mahasiswa ke ${i}`);
 }
 
@@ -34,13 +34,14 @@ for (const [i, m] of mhs.entries()) {
 const nama = "tomi";
 for (const n of nama) {
   console.log(n);
+  // output :
   // t
   // o
   // m
   // i
 }
 
-// NodeList
+// ==> NodeList <===
 
 // ini akan error jika tidak dijalankan di browser terbaru
 // const lsMhs = document.querySelectorAll(".nama");

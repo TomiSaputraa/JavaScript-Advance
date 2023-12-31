@@ -1,35 +1,426 @@
-# Object
+# 1. Object
 
 - Object.create
 sama saja dengan membuat object('{}') bedanya kita bisa menyimpan parameter di dalamnya,parameter mengacu pada parent objectnya
+  <details>
+  <summary>contoh kode</summary>
 
-- Prototype
-dengan prototype kita tidak perlu membuat object baru lagi
+  ```javaScript
+  // Objek yang akan dijadikan prototip
+  const animal = {
+    makeSound: function() {
+      console.log("Some generic sound");
+    }
+  };
+
+  // Membuat objek baru dengan menggunakan animal sebagai prototip
+  const cat = Object.create(animal);
+
+  // Menambahkan properti khusus untuk objek cat
+  cat.name = "Whiskers";
+
+  // Memanggil metode dari objek prototip
+  cat.makeSound(); // Output: Some generic sound
+
+  // Menambahkan metode khusus untuk objek cat
+  cat.meow = function() {
+    console.log("Meow!");
+  };
+
+  // Memanggil metode khusus objek cat
+  cat.meow(); // Output: Meow!
+
+  ```
+  </details>
+- Prototype : dengan prototype kita tidak perlu membuat object baru lagi
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  function Mahasiswa(name, energi) {
+  //   let mahasiswa = Object.create(methodMahasiswa);
+
+  // this sebenarnya membuat variable baru seperti:
+  // let this = {};
+  // let this = Object.create(Mahasiswa.protoype) // secara default constructor sudah punya prototype
+  this.nama = name;
+  this.energi = energi;
+
+  //   return mahasiswa;
+
+  // lalu this di return disini
+  //   return this;
+  }
+
+  // contoh prototype, dengan prototype kita tidak perlu membuat object baru lagi
+  Mahasiswa.prototype.makan = function (porsi) {
+    this.energi += porsi;
+    return `Halo ${this.nama}, selamat makan`;
+  };
+
+  Mahasiswa.prototype.main = function (jam) {
+    this.energi -= jam;
+    return `Halo ${this.nama}, selamat main`;
+  };
+
+  Mahasiswa.prototype.tidur = function (jam) {
+    this.energi += jam * 2;
+    return `Halo ${this.nama}, selamat tidur`;
+  };
+
+  Mahasiswa.prototype.halo = { "hallo bg": "dad" };
+
+  let tomi = new Mahasiswa("tomi", 20);
+  ```
+  </details>
 
 # Excecution context
-    - fase pada Excecution context :
-        - Creation :
-        - Execution :
-- Hoisting : Hoisting adalah perilaku dalam JavaScript di mana deklarasi variabel dan fungsi
-             ditinggikan (hoisted) ke atas lingkup fungsional atau skrip secara implisit(tidak terlihat) saat kode dijalankan.
-Ketika menggunakan let dan const (diperkenalkan dalam ECMAScript 2015), variabel 
-tidak akan ditinggikan dan akan tetap berada dalam "tempat" deklarasinya.
-            
-- Scope
+- fase pada Excecution context :
+    - Creation : Pada fase pembuatan, JavaScript melakukan beberapa tugas untuk menyiapkan execution context sebelum kode sebenarnya dieksekusi.
+    - Execution : Setelah fase pembuatan selesai, kode JavaScript masuk ke fase eksekusi. Pada fase ini, instruksi kode dieksekusi baris per baris.
+- Hoisting : Hoisting adalah perilaku dalam JavaScript di mana deklarasi variabel dan fungsi ditinggikan (hoisted) ke atas lingkup fungsional atau skrip secara implisit(tidak terlihat) saat kode dijalankan.
 
-# Closures
+  Ketika menggunakan let dan const (diperkenalkan dalam ECMAScript 2015), variabel tidak akan ditinggikan dan akan tetap berada dalam "tempat" deklarasinya.
+
+# 2. Closures
 Closures (penutupan) adalah konsep penting dalam JavaScript, yang mengacu pada kemampuan fungsi untuk "mengingat" dan mengakses 
 variabel dan lingkup (scope) yang ada di luar fungsi tersebut, bahkan setelah fungsi tersebut selesai dieksekusi. Closures memungkinkan 
 Anda untuk membuat lingkup terbatas yang memungkinkan data tetap ada dan dapat digunakan oleh fungsi yang lain.
+  <details>
+  <summary>contoh kode</summary>
 
-# var, let & const
+  ```javaScript
+  function outerFunction() {
+  var outerVariable = "I am from outer function";
 
-var : function scope
-let & const : block scope
-di JavaScript terbaru disarankan menggunakan let & const
+  function innerFunction() {
+    console.log(outerVariable);
+  }
 
-# Higher order function
+  return innerFunction;
+  }
+
+  // Membuat closure
+  var closure = outerFunction();
+
+  // Memanggil fungsi yang ada dalam closure
+  closure(); // Output: I am from outer function
+
+  ```
+  </details>
+
+### var, let & const
+
+- var : function scope
+- let & const : block scope, di JavaScript terbaru disarankan menggunakan let & const
+
+# 3. Higher order function
 Higher-order functions adalah konsep dalam pemrograman JavaScript (dan pemrograman fungsional umumnya) 
 di mana fungsi dapat diteruskan sebagai argumen ke fungsi lain atau dikembalikan oleh fungsi. Ini berarti fungsi dapat dianggap sebagai nilai yang dapat dioperasikan seperti tipe data lainnya.
 
-# Filter,Map&reduce
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  function higherOrderFnc(mataKuliah, selesai) {
+  // higherOrderFnc adalah Higher Order Function
+  // param selesai adalah callback
+  console.log(`mulai mengerjakan tugas ${mataKuliah}`);
+  selesai();
+  }
+
+  function selesai() {
+    console.log(`selesai mengerjakan tugas`);
+  }
+
+  higherOrderFnc("komputer", selesai);
+  ```
+  </details>
+
+# 4. Filter, Map & reduce
+
+filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScript. Mereka memberikan cara yang deklaratif untuk memanipulasi elemen-elemen array dan sering digunakan dalam pemrograman fungsional. 
+
+## 1. filter
+  Metode filter digunakan untuk membuat array baru dengan elemen-elemen yang memenuhi kriteria tertentu.
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  const numbers = [1, 2, 3, 4, 5, 6];
+
+  // Filter elemen-elemen yang lebih besar dari 3
+  const filteredNumbers = numbers.filter(num => num > 3);
+
+  console.log(filteredNumbers); // Output: [4, 5, 6]
+  ```
+  </details>
+
+## 2. Map
+  Metode map digunakan untuk membuat array baru dengan hasil dari pemanggilan fungsi tertentu pada setiap elemen array.
+
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  const numbers = [1, 2, 3, 4, 5];
+
+  // Menggandakan setiap elemen dalam array
+  const doubledNumbers = numbers.map(num => num * 2);
+
+  console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+  ```
+  </details>
+
+## 3. reduce
+  Metode reduce digunakan untuk mereduksi elemen-elemen array menjadi nilai tunggal. Ini sering digunakan untuk operasi seperti menjumlahkan semua elemen atau menghitung statistik.
+
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  const numbers = [1, 2, 3, 4, 5];
+
+  // Menjumlahkan semua elemen dalam array
+  const sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
+
+  console.log(sum); // Output: 15
+  ```
+  </details>
+
+# 5. Template Literals
+
+## 1. Multiline String:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  const multiline = `Baris pertama
+  Baris kedua
+  Baris ketiga`;
+  ```
+  </details>
+
+## 2. Interpolasi Variabel:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  const name = "Alice";
+  const greeting = `Halo, ${name}!`;
+  ```
+  </details>
+
+## 3. embedded expression
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  const a = 5;
+  const b = 10;
+  const hasil = `Hasil penjumlahan ${a} dan ${b} adalah ${a + b}`;
+  ```
+  </details>
+
+# 6. Tag Template
+Template literals membuat penggunaan string lebih mudah dan membantu mengurangi kebutuhan untuk menggunakan operator konkatenasi (+) atau karakter escape untuk string multiline. Ini menjadi lebih bersih dan mudah dibaca.
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  function tag(strings, ...values) {
+  // strings adalah array string yang dipecah
+  // values adalah array nilai yang diinterpolasi
+  // lakukan apapun dengan strings dan values
+  }
+
+  const result = tag`Nilai a: ${a}, Nilai b: ${b}`;
+  ```
+  </details>
+
+# 7. Destructuring variable
+
+Destructuring assignment adalah fitur yang memungkinkan Anda mendeklarasikan dan menginisialisasi variabel dari nilai-nilai di dalam objek atau array dengan cara yang lebih ringkas. Dengan cara ini, Anda dapat mengekstrak nilai-nilai dari struktur data tersebut dan menyimpannya ke dalam variabel-variabel terpisah.
+
+## 1. Destructuring Objek:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  // Destructuring objek
+  const person = { name: "John", age: 30, city: "New York" };
+
+  const { name, age, city } = person;
+
+  console.log(name); // Output: John
+  console.log(age);  // Output: 30
+  console.log(city); // Output: New York
+  ```
+  </details>
+
+## 2. Destructuring Array:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  // Destructuring array
+  const numbers = [1, 2, 3, 4, 5];
+
+  const [first, second, ...rest] = numbers;
+
+  console.log(first); // Output: 1
+  console.log(second); // Output: 2
+  console.log(rest); // Output: [3, 4, 5]
+  ```
+  </details>
+
+## 3. Default Values:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  // Destructuring dengan default values
+  const person = { name: "Bob", city: "London" };
+
+  const { name, age = 30, city } = person;
+
+  console.log(name); // Output: Bob
+  console.log(age);  // Output: 30 (nilai default)
+  console.log(city); // Output: London
+  ```
+  </details>
+
+## 4. Destructuring Assignment untuk Menukar Nilai:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  let a = 5;
+  let b = 10;
+
+  // Menukar nilai menggunakan destructuring assignment
+  [a, b] = [b, a];
+
+  console.log(a); // Output: 10
+  console.log(b); // Output: 5
+  ```
+  </details>
+
+# 8. Destructuring function
+Destructuring juga dapat digunakan dalam parameter fungsi untuk membongkar nilai dari objek atau array saat fungsi dipanggil. Ini memungkinkan Anda menulis kode yang lebih bersih dan ekspresif.
+
+## 1. Destructuring Objek dalam Parameter Fungsi:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  // Destructuring objek dalam parameter fungsi
+  function printPerson({ name, age, city }) {
+    console.log(`Nama: ${name}, Umur: ${age}, Kota: ${city}`);
+  }
+
+  const person = { name: "John", age: 30, city: "New York" };
+
+  printPerson(person);
+  // Output: Nama: John, Umur: 30, Kota: New York
+
+  ```
+  </details>
+
+## 2. Destructuring Array dalam Parameter Fungsi:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  // Destructuring array dalam parameter fungsi
+  function printNumbers([first, second, ...rest]) {
+    console.log(`First: ${first}, Second: ${second}, Rest: ${rest}`);
+  }
+
+  const numbers = [1, 2, 3, 4, 5];
+
+  printNumbers(numbers);
+  // Output: First: 1, Second: 2, Rest: 3,4,5
+
+  ```
+  </details>
+
+## 3. Destructuring dengan Default Values dalam Parameter Fungsi:
+
+<details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  // Destructuring dengan default values dalam parameter fungsi
+  function printPerson({ name, age = 25, city }) {
+    console.log(`Nama: ${name}, Umur: ${age}, Kota: ${city}`);
+  }
+
+  const person = { name: "Alice", city: "London" };
+
+  printPerson(person);
+  // Output: Nama: Alice, Umur: 25, Kota: London
+
+  ```
+  </details>
+
+## 4. Destructuring Array dengan Default Values dalam Parameter Fungsi:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  // Destructuring array dengan default values dalam parameter fungsi
+  function printNumbers([first, second = 0, ...rest]) {
+    console.log(`First: ${first}, Second: ${second}, Rest: ${rest}`);
+  }
+
+  const numbers = [1];
+
+  printNumbers(numbers);
+  // Output: First: 1, Second: 0, Rest:
+
+  ```
+  </details>
+
+# 9. for of dan for in
+## - 'for...of':
+for...of digunakan untuk mengulangi elemen dari iterable objects seperti array, string, Map, Set, dan objek yang implementasi protokol iterable. Ini memberikan nilai-nilai aktual dari elemen-elemen tersebut.
+
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  const numbers = [1, 2, 3, 4, 5];
+
+  for (const number of numbers) {
+    console.log(number);
+  }
+  // Output:
+  // 1
+  // 2
+  // 3
+  // 4
+  // 5
+
+  ```
+  </details>
+
+## - for...in :
+for...in digunakan untuk mengulangi properti-properti enumerable dari sebuah objek. Ini memberikan kunci (indeks atau nama properti) daripada nilai aktual dari properti tersebut.
+
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  const person = { name: "John", age: 30, city: "New York" };
+
+  for (const key in person) {
+    console.log(key + ": " + person[key]);
+  }
+  // Output:
+  // name: John
+  // age: 30
+  // city: New York
+
+  ```
+  </details>
