@@ -77,7 +77,7 @@
 
   </details>
 
-# 2. Excecution context
+# 2. Execution context
 
 - fase pada Excecution context :
   - Creation : Pada fase pembuatan, JavaScript melakukan beberapa tugas untuk menyiapkan execution context sebelum kode sebenarnya dieksekusi.
