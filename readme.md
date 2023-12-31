@@ -150,97 +150,97 @@ higherOrderFnc("komputer", selesai);
 
 filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScript. Mereka memberikan cara yang deklaratif untuk memanipulasi elemen-elemen array dan sering digunakan dalam pemrograman fungsional.
 
-## 1. filter
+- 1.filter
 
-Metode filter digunakan untuk membuat array baru dengan elemen-elemen yang memenuhi kriteria tertentu.
+  Metode filter digunakan untuk membuat array baru dengan elemen-elemen yang memenuhi kriteria tertentu.
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-const numbers = [1, 2, 3, 4, 5, 6];
+  ```javaScript
+  const numbers = [1, 2, 3, 4, 5, 6];
 
-// Filter elemen-elemen yang lebih besar dari 3
-const filteredNumbers = numbers.filter(num => num > 3);
+  // Filter elemen-elemen yang lebih besar dari 3
+  const filteredNumbers = numbers.filter(num => num > 3);
 
-console.log(filteredNumbers); // Output: [4, 5, 6]
-```
+  console.log(filteredNumbers); // Output: [4, 5, 6]
+  ```
 
   </details>
 
-## 2. Map
+- 2.Map
 
-Metode map digunakan untuk membuat array baru dengan hasil dari pemanggilan fungsi tertentu pada setiap elemen array.
+  Metode map digunakan untuk membuat array baru dengan hasil dari pemanggilan fungsi tertentu pada setiap elemen array.
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-const numbers = [1, 2, 3, 4, 5];
+  ```javaScript
+  const numbers = [1, 2, 3, 4, 5];
 
-// Menggandakan setiap elemen dalam array
-const doubledNumbers = numbers.map(num => num * 2);
+  // Menggandakan setiap elemen dalam array
+  const doubledNumbers = numbers.map(num => num * 2);
 
-console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
-```
+  console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+  ```
 
   </details>
 
-## 3. reduce
+- 3.reduce
 
-Metode reduce digunakan untuk mereduksi elemen-elemen array menjadi nilai tunggal. Ini sering digunakan untuk operasi seperti menjumlahkan semua elemen atau menghitung statistik.
+  Metode reduce digunakan untuk mereduksi elemen-elemen array menjadi nilai tunggal. Ini sering digunakan untuk operasi seperti menjumlahkan semua elemen atau menghitung statistik.
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-const numbers = [1, 2, 3, 4, 5];
+  ```javaScript
+  const numbers = [1, 2, 3, 4, 5];
 
-// Menjumlahkan semua elemen dalam array
-const sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
+  // Menjumlahkan semua elemen dalam array
+  const sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
 
-console.log(sum); // Output: 15
-```
+  console.log(sum); // Output: 15
+  ```
 
   </details>
 
 # 6. Template Literals
 
-## 1. Multiline String:
+- 1.Multiline String:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-const multiline = `Baris pertama
-Baris kedua
-Baris ketiga`;
-```
+  ```javaScript
+  const multiline = `Baris pertama
+  Baris kedua
+  Baris ketiga`;
+  ```
 
   </details>
 
-## 2. Interpolasi Variabel:
+- 2.Interpolasi Variabel:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-const name = "Alice";
-const greeting = `Halo, ${name}!`;
-```
+  ```javaScript
+  const name = "Alice";
+  const greeting = `Halo, ${name}!`;
+  ```
 
   </details>
 
-## 3. embedded expression
+- 3.embedded expression
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-const a = 5;
-const b = 10;
-const hasil = `Hasil penjumlahan ${a} dan ${b} adalah ${a + b}`;
-```
+  ```javaScript
+  const a = 5;
+  const b = 10;
+  const hasil = `Hasil penjumlahan ${a} dan ${b} adalah ${a + b}`;
+  ```
 
   </details>
 
@@ -267,75 +267,75 @@ const result = tag`Nilai a: ${a}, Nilai b: ${b}`;
 
 Destructuring assignment adalah fitur yang memungkinkan Anda mendeklarasikan dan menginisialisasi variabel dari nilai-nilai di dalam objek atau array dengan cara yang lebih ringkas. Dengan cara ini, Anda dapat mengekstrak nilai-nilai dari struktur data tersebut dan menyimpannya ke dalam variabel-variabel terpisah.
 
-## 1. Destructuring Objek:
+- 1.Destructuring Objek:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-// Destructuring objek
-const person = { name: "John", age: 30, city: "New York" };
+  ```javaScript
+  // Destructuring objek
+  const person = { name: "John", age: 30, city: "New York" };
 
-const { name, age, city } = person;
+  const { name, age, city } = person;
 
-console.log(name); // Output: John
-console.log(age);  // Output: 30
-console.log(city); // Output: New York
-```
+  console.log(name); // Output: John
+  console.log(age);  // Output: 30
+  console.log(city); // Output: New York
+  ```
 
   </details>
 
-## 2. Destructuring Array:
+- 2.Destructuring Array:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-// Destructuring array
-const numbers = [1, 2, 3, 4, 5];
+  ```javaScript
+  // Destructuring array
+  const numbers = [1, 2, 3, 4, 5];
 
-const [first, second, ...rest] = numbers;
+  const [first, second, ...rest] = numbers;
 
-console.log(first); // Output: 1
-console.log(second); // Output: 2
-console.log(rest); // Output: [3, 4, 5]
-```
+  console.log(first); // Output: 1
+  console.log(second); // Output: 2
+  console.log(rest); // Output: [3, 4, 5]
+  ```
 
   </details>
 
-## 3. Default Values:
+- 3.Default Values:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-// Destructuring dengan default values
-const person = { name: "Bob", city: "London" };
+  ```javaScript
+  // Destructuring dengan default values
+  const person = { name: "Bob", city: "London" };
 
-const { name, age = 30, city } = person;
+  const { name, age = 30, city } = person;
 
-console.log(name); // Output: Bob
-console.log(age);  // Output: 30 (nilai default)
-console.log(city); // Output: London
-```
+  console.log(name); // Output: Bob
+  console.log(age);  // Output: 30 (nilai default)
+  console.log(city); // Output: London
+  ```
 
   </details>
 
-## 4. Destructuring Assignment untuk Menukar Nilai:
+- 4.Destructuring Assignment untuk Menukar Nilai:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-let a = 5;
-let b = 10;
+  ```javaScript
+  let a = 5;
+  let b = 10;
 
-// Menukar nilai menggunakan destructuring assignment
-[a, b] = [b, a];
+  // Menukar nilai menggunakan destructuring assignment
+  [a, b] = [b, a];
 
-console.log(a); // Output: 10
-console.log(b); // Output: 5
-```
+  console.log(a); // Output: 10
+  console.log(b); // Output: 5
+  ```
 
   </details>
 
@@ -343,83 +343,83 @@ console.log(b); // Output: 5
 
 Destructuring juga dapat digunakan dalam parameter fungsi untuk membongkar nilai dari objek atau array saat fungsi dipanggil. Ini memungkinkan Anda menulis kode yang lebih bersih dan ekspresif.
 
-## 1. Destructuring Objek dalam Parameter Fungsi:
+- 1.Destructuring Objek dalam Parameter Fungsi:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-// Destructuring objek dalam parameter fungsi
-function printPerson({ name, age, city }) {
-  console.log(`Nama: ${name}, Umur: ${age}, Kota: ${city}`);
-}
+  ```javaScript
+  // Destructuring objek dalam parameter fungsi
+  function printPerson({ name, age, city }) {
+    console.log(`Nama: ${name}, Umur: ${age}, Kota: ${city}`);
+  }
 
-const person = { name: "John", age: 30, city: "New York" };
+  const person = { name: "John", age: 30, city: "New York" };
 
-printPerson(person);
-// Output: Nama: John, Umur: 30, Kota: New York
+  printPerson(person);
+  // Output: Nama: John, Umur: 30, Kota: New York
 
-```
+  ```
 
   </details>
 
-## 2. Destructuring Array dalam Parameter Fungsi:
+- 2.Destructuring Array dalam Parameter Fungsi:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-// Destructuring array dalam parameter fungsi
-function printNumbers([first, second, ...rest]) {
-  console.log(`First: ${first}, Second: ${second}, Rest: ${rest}`);
-}
+  ```javaScript
+  // Destructuring array dalam parameter fungsi
+  function printNumbers([first, second, ...rest]) {
+    console.log(`First: ${first}, Second: ${second}, Rest: ${rest}`);
+  }
 
-const numbers = [1, 2, 3, 4, 5];
+  const numbers = [1, 2, 3, 4, 5];
 
-printNumbers(numbers);
-// Output: First: 1, Second: 2, Rest: 3,4,5
+  printNumbers(numbers);
+  // Output: First: 1, Second: 2, Rest: 3,4,5
 
-```
-
-  </details>
-
-## 3. Destructuring dengan Default Values dalam Parameter Fungsi:
-
-<details>
-  <summary>contoh kode</summary>
-
-```javaScript
-// Destructuring dengan default values dalam parameter fungsi
-function printPerson({ name, age = 25, city }) {
-  console.log(`Nama: ${name}, Umur: ${age}, Kota: ${city}`);
-}
-
-const person = { name: "Alice", city: "London" };
-
-printPerson(person);
-// Output: Nama: Alice, Umur: 25, Kota: London
-
-```
+  ```
 
   </details>
 
-## 4. Destructuring Array dengan Default Values dalam Parameter Fungsi:
+- 3.Destructuring dengan Default Values dalam Parameter Fungsi:
+
+  <details>
+    <summary>contoh kode</summary>
+
+  ```javaScript
+  // Destructuring dengan default values dalam parameter fungsi
+  function printPerson({ name, age = 25, city }) {
+    console.log(`Nama: ${name}, Umur: ${age}, Kota: ${city}`);
+  }
+
+  const person = { name: "Alice", city: "London" };
+
+  printPerson(person);
+  // Output: Nama: Alice, Umur: 25, Kota: London
+
+  ```
+
+  </details>
+
+- 4.Destructuring Array dengan Default Values dalam Parameter Fungsi:
 
   <details>
   <summary>contoh kode</summary>
 
-```javaScript
-// Destructuring array dengan default values dalam parameter fungsi
-function printNumbers([first, second = 0, ...rest]) {
-  console.log(`First: ${first}, Second: ${second}, Rest: ${rest}`);
-}
+  ```javaScript
+  // Destructuring array dengan default values dalam parameter fungsi
+  function printNumbers([first, second = 0, ...rest]) {
+    console.log(`First: ${first}, Second: ${second}, Rest: ${rest}`);
+  }
 
-const numbers = [1];
+  const numbers = [1];
 
-printNumbers(numbers);
-// Output: First: 1, Second: 0, Rest:
+  printNumbers(numbers);
+  // Output: First: 1, Second: 0, Rest:
 
-```
+  ```
 
   </details>
 
