@@ -88,9 +88,7 @@ Ketika menggunakan let dan const (diperkenalkan dalam ECMAScript 2015), variabel
 
 # 3. Closures
 
-Closures (penutupan) adalah konsep penting dalam JavaScript, yang mengacu pada kemampuan fungsi untuk "mengingat" dan mengakses
-variabel dan lingkup (scope) yang ada di luar fungsi tersebut, bahkan setelah fungsi tersebut selesai dieksekusi. Closures memungkinkan
-Anda untuk membuat lingkup terbatas yang memungkinkan data tetap ada dan dapat digunakan oleh fungsi yang lain.
+Closures (penutupan) adalah konsep penting dalam JavaScript, meskipun fungsi tersebut sudah selesai dijalankan. Ini memungkinkan fungsi tersebut untuk "mengingat" lingkungan di mana ia dibuat. bahkan setelah fungsi tersebut selesai dieksekusi. Closures memungkinkan Anda untuk membuat lingkup terbatas yang memungkinkan data tetap ada dan dapat digunakan oleh fungsi yang lain.
 
   <details>
   <summary>contoh kode</summary>
