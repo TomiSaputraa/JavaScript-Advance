@@ -119,7 +119,43 @@ closure(); // Output: I am from outer function
 - var : function scope
 - let & const : block scope, di JavaScript terbaru disarankan menggunakan let & const
 
-# 4. Higher order function
+# 4. Arrow Function
+Beberapa karakteristik dari arrow function:
+
+1. Tidak memiliki binding this.
+2. Lebih singkat dan ringkas.
+3. Tidak memiliki arguments.
+
+<details>
+  <summary>contoh kode</summary>
+
+  ```javascript
+  // Contoh 1: Arrow function dengan satu parameter
+  const square = x => x * x;
+  
+  // Contoh 2: Arrow function tanpa parameter
+  const getRandomNumber = () => Math.random();
+  
+  // Contoh 3: Arrow function sebagai callback function
+  const numbers = [1, 2, 3, 4, 5];
+  const squaredNumbers = numbers.map(num => num * num);
+  
+  // Contoh 4: Arrow function dengan penggunaan this
+  function Counter() {
+    this.count = 0;
+  
+    setInterval(() => {
+      this.count++;
+      console.log(this.count);
+    }, 1000);
+  }
+  
+  const counter = new Counter();
+
+  ```
+</details>
+
+# 5. Higher order function
 
 Higher-order functions adalah konsep dalam pemrograman JavaScript (dan pemrograman fungsional umumnya)
 di mana fungsi dapat diteruskan sebagai argumen ke fungsi lain atau dikembalikan oleh fungsi. Ini berarti fungsi dapat dianggap sebagai nilai yang dapat dioperasikan seperti tipe data lainnya.
@@ -144,7 +180,7 @@ higherOrderFnc("komputer", selesai);
 
   </details>
 
-# 5. Filter, Map & reduce
+# 6. Filter, Map & reduce
 
 filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScript. Mereka memberikan cara yang deklaratif untuk memanipulasi elemen-elemen array dan sering digunakan dalam pemrograman fungsional.
 
@@ -202,7 +238,7 @@ filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScr
 
   </details>
 
-# 6. Template Literals
+# 7. Template Literals
 
 - 1.Multiline String:
 
@@ -242,7 +278,7 @@ filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScr
 
   </details>
 
-# 7. Tag Template
+# 8. Tag Template
 
 Template literals membuat penggunaan string lebih mudah dan membantu mengurangi kebutuhan untuk menggunakan operator konkatenasi (+) atau karakter escape untuk string multiline. Ini menjadi lebih bersih dan mudah dibaca.
 
@@ -261,7 +297,7 @@ const result = tag`Nilai a: ${a}, Nilai b: ${b}`;
 
   </details>
 
-# 8. Destructuring variable
+# 9. Destructuring variable
 
 Destructuring assignment adalah fitur yang memungkinkan Anda mendeklarasikan dan menginisialisasi variabel dari nilai-nilai di dalam objek atau array dengan cara yang lebih ringkas. Dengan cara ini, Anda dapat mengekstrak nilai-nilai dari struktur data tersebut dan menyimpannya ke dalam variabel-variabel terpisah.
 
@@ -337,7 +373,7 @@ Destructuring assignment adalah fitur yang memungkinkan Anda mendeklarasikan dan
 
   </details>
 
-# 9. Destructuring function
+# 10. Destructuring function
 
 Destructuring juga dapat digunakan dalam parameter fungsi untuk membongkar nilai dari objek atau array saat fungsi dipanggil. Ini memungkinkan Anda menulis kode yang lebih bersih dan ekspresif.
 
@@ -421,7 +457,7 @@ Destructuring juga dapat digunakan dalam parameter fungsi untuk membongkar nilai
 
   </details>
 
-# 10. for of dan for in
+# 11. for of dan for in
 
 ## - 'for...of':
 
