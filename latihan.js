@@ -1,38 +1,13 @@
-// arrow fun
+// filter map dan reduce
 
-// let arrow = () => {
-//   console.log(`Ini adalah arrow function`);
-// };
-// arrow();
+const arr = [-1, 2, -3, 4, 0, 3, 4, 5, 9, 10];
 
-// (function () {
-//   console.log(`halo ini function express`);
-// })();
-// ==> High order function
-function mataKuliah(mataKuliah, selesai) {
-  console.log(`Mata kuliah hari ini adalah ${mataKuliah}`);
-  selesai();
-}
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
 
-let selesai = function () {
-  console.log(`mata kuliah selesai`);
-};
+const angka = arr.filter((a) => a * 2);
 
-mataKuliah("bahasa inggris", selesai);
+// const angka = arr.map((a) => a * 2);
 
-// ==> Filter map reduce
-const angka = [-1, 2, 3, 4, -2, 0, 9, 6, 10];
-
-// filter
-const filter = angka.filter((a) => a >= 3);
-console.log(`hasil filter : ` + filter);
-
-// map
-const map = angka.map((a) => a * 2);
-console.log(map);
-
-// template literal
-// tag template
-// destructuring variable
-// destrcuturing function
-// for..of dan for in
+console.log(angka);

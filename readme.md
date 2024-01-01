@@ -158,12 +158,34 @@ filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScr
   <summary>contoh kode</summary>
 
   ```javaScript
-  const numbers = [1, 2, 3, 4, 5, 6];
+  // Contoh 1: Mencari nilai yang lebih besar dari 3
+  const numbers = [1, 2, 3, 4, 5];
+  const filteredNumbers = numbers.filter(function(num) {
+    return num > 3;
+  });
+  console.log(filteredNumbers);
+  // Output: [4, 5]
 
-  // Filter elemen-elemen yang lebih besar dari 3
-  const filteredNumbers = numbers.filter(num => num > 3);
+  // Contoh 2: Mencari kata-kata yang memiliki panjang lebih dari 3 karakter
+  const words = ['apple', 'banana', 'orange', 'grape'];
+  const filteredWords = words.filter(function(word) {
+    return word.length > 3;
+  });
+  console.log(filteredWords);
+  // Output: ['apple', 'banana', 'orange', 'grape']
 
-  console.log(filteredNumbers); // Output: [4, 5, 6]
+  // Contoh 3: Mencari orang-orang yang berumur lebih dari 25 tahun
+  const persons = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 }
+  ];
+  const filteredPersons = persons.filter(function(person) {
+    return person.age > 25;
+  });
+  console.log(filteredPersons);
+  // Output: [{ name: 'Bob', age: 30 }, { name: 'Charlie', age: 35 }]
+
   ```
 
   </details>
@@ -176,12 +198,34 @@ filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScr
   <summary>contoh kode</summary>
 
   ```javaScript
+  // Contoh 1: Menggandakan setiap elemen dalam array
   const numbers = [1, 2, 3, 4, 5];
+  const doubledNumbers = numbers.map(function(num) {
+    return num * 2;
+  });
+  console.log(doubledNumbers);
+  // Output: [2, 4, 6, 8, 10]
 
-  // Menggandakan setiap elemen dalam array
-  const doubledNumbers = numbers.map(num => num * 2);
+  // Contoh 2: Mengonversi setiap elemen menjadi string
+  const names = ['John', 'Jane', 'Doe'];
+  const nameLengths = names.map(function(name) {
+    return name.length;
+  });
+  console.log(nameLengths);
+  // Output: [4, 4, 3]
 
-  console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+  // Contoh 3: Mengambil properti tertentu dari objek dalam array
+  const persons = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 }
+  ];
+  const personNames = persons.map(function(person) {
+    return person.name;
+  });
+  console.log(personNames);
+  // Output: ['Alice', 'Bob', 'Charlie']
+
   ```
 
   </details>
@@ -194,12 +238,34 @@ filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScr
   <summary>contoh kode</summary>
 
   ```javaScript
+  // Contoh 1: Menjumlahkan semua elemen dalam array
   const numbers = [1, 2, 3, 4, 5];
+  const sum = numbers.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue;
+  }, 0);
+  console.log(sum);
+  // Output: 15
 
-  // Menjumlahkan semua elemen dalam array
-  const sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
+  // Contoh 2: Menggabungkan semua kata dalam array menjadi satu string
+  const words = ['Hello', ' ', 'World', '!'];
+  const concatenatedString = words.reduce(function(accumulator, currentValue) {
+    return accumulator + currentValue;
+  }, '');
+  console.log(concatenatedString);
+  // Output: Hello World!
 
-  console.log(sum); // Output: 15
+  // Contoh 3: Menghitung jumlah umur dari array objek orang
+  const persons = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 }
+  ];
+  const totalAge = persons.reduce(function(accumulator, person) {
+    return accumulator + person.age;
+  }, 0);
+  console.log(totalAge);
+  // Output: 90
+
   ```
 
   </details>
