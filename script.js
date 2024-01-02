@@ -1,82 +1,46 @@
-// For of dan For in
+// Spread operator :
+// memecah (expand/unpack) iterable element menjadi single element
 
-// For of : digunakan untuk mengiterasi melalui nilai-nilai elemen-elemen yang dapat diulang (iterable) seperti array, string, Map, Set, dan sebagainya.
-// For in : igunakan untuk mengiterasi melalui properti-properti suatu objek. Ini cocok untuk objek yang memiliki sifat enumerable seperti objek biasa atau array. Namun, sebaiknya tidak digunakan untuk iterasi array, karena dapat menghasilkan hasil yang tidak diinginkan jika properti yang ditambahkan ke prototipe Array diteruskan ke hasil iterasi.
+// const mhs = ["tomi", "andi", "arif"];
 
-// Contoh
+// console.log(...mhs[0]);
 
-// for of
+// contoh penggunaan :
 
-// array
-const mhs = ["tomi", "saputra", "andi"];
+// 1. penggabungan array
+// const mhs = ["tomi", "andi", "arif"];
+// const dosen = ["arif", "atom", "orang"];
 
-// contoh tanpa for of
-// for (i = 0; i < mhs.length; i++) {
-//   console.log(mhs[i]);
+// const orang = [...mhs, "aji", ...dosen];
+
+// dengan concat susah menambahkan array baru seperti aji di atas
+// // const orang = mhs.concat(dosen);
+// console.log(orang);
+
+// Mengcopy array
+
+const mhs = ["tomi", "andi", "arif"];
+// const mhs1 = mhs;
+// mhs1[0] = "anto";
+
+const mhs1 = [...mhs];
+mhs1[0] = "anto";
+
+// console.log(mhs1);
+
+const limhs = document.querySelectorAll("li");
+
+// const mhsnew = [];
+
+// for (let i = 0; i < limhs.length; i++) {
+//   mhsnew.push(limhs[i].textContent);
 // }
 
-// mhs.forEach((e, i) => {
-//   console.log(`${e} adalah mahasiswa ke ${i}`);
-// });
+const mhsnew = [...limhs].map((m) => m.textContent);
 
-// contoh dengan for of
-// for (const m of mhs) {
-//   console.log(m);
-// }
+console.log(mhsnew);
 
-// memunculkan index dengan for of
-for (const [i, m] of mhs.entries()) {
-  // karena hasilnya array maka bisa kita destructuring
-  console.log(`${m} adalah mahasiswa ke ${i}`);
-}
+const nama = document.querySelector(".namas");
+const huruf = [...nama.textContent].map((h) => `<span>${h}</span>`).join("");
 
-// String
-const nama = "tomi";
-for (const n of nama) {
-  console.log(n);
-  // t
-  // o
-  // m
-  // i
-}
-
-// NodeList
-
-// ini akan error jika tidak dijalankan di browser terbaru
-// const lsMhs = document.querySelectorAll(".nama");
-
-// lsMhs.forEach((e) => {
-//   console.log(e.textContent);
-// });
-
-// for (const m of lsMhs) {
-//   console.log(m.innerHTML);
-// }
-
-// Arguments
-
-function jumlahkanAngka() {
-  let jumlah = 0;
-  for (a of arguments) {
-    jumlah += a;
-    // 15
-  }
-  return jumlah;
-}
-
-console.log(jumlahkanAngka(1, 2, 3, 4, 5));
-
-// For in
-
-const msy = {
-  nama: "tomi",
-  umur: 23,
-  email: "tomi@gmail.com",
-};
-
-for (m in msy) {
-  //   console.log(m);
-
-  // mengambil value sebuah object
-  console.log(msy[m]);
-}
+nama.innerHTML = huruf;

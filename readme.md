@@ -120,6 +120,7 @@ closure(); // Output: I am from outer function
 - let & const : block scope, di JavaScript terbaru disarankan menggunakan let & const
 
 # 4. Arrow Function
+
 Beberapa karakteristik dari arrow function:
 
 1. Tidak memiliki binding this.
@@ -129,30 +130,30 @@ Beberapa karakteristik dari arrow function:
 <details>
   <summary>contoh kode</summary>
 
-  ```javascript
-  // Contoh 1: Arrow function dengan satu parameter
-  const square = x => x * x;
-  
-  // Contoh 2: Arrow function tanpa parameter
-  const getRandomNumber = () => Math.random();
-  
-  // Contoh 3: Arrow function sebagai callback function
-  const numbers = [1, 2, 3, 4, 5];
-  const squaredNumbers = numbers.map(num => num * num);
-  
-  // Contoh 4: Arrow function dengan penggunaan this
-  function Counter() {
-    this.count = 0;
-  
-    setInterval(() => {
-      this.count++;
-      console.log(this.count);
-    }, 1000);
-  }
-  
-  const counter = new Counter();
+```javascript
+// Contoh 1: Arrow function dengan satu parameter
+const square = (x) => x * x;
 
-  ```
+// Contoh 2: Arrow function tanpa parameter
+const getRandomNumber = () => Math.random();
+
+// Contoh 3: Arrow function sebagai callback function
+const numbers = [1, 2, 3, 4, 5];
+const squaredNumbers = numbers.map((num) => num * num);
+
+// Contoh 4: Arrow function dengan penggunaan this
+function Counter() {
+  this.count = 0;
+
+  setInterval(() => {
+    this.count++;
+    console.log(this.count);
+  }, 1000);
+}
+
+const counter = new Counter();
+```
+
 </details>
 
 # 5. Higher order function
@@ -273,6 +274,7 @@ filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScr
 
   ```javaScript
   // Contoh 1: Menjumlahkan semua elemen dalam array
+  // [1 + 1 = 2, 2 + 2 =4,dst]
   const numbers = [1, 2, 3, 4, 5];
   const sum = numbers.reduce(function(accumulator, currentValue) {
     return accumulator + currentValue;
@@ -570,3 +572,58 @@ for (const key in person) {
 ```
 
   </details>
+
+# 12. Spread Operator
+
+Spread operator (...) dalam JavaScript digunakan untuk memecah (spread) elemen-elemen dalam array atau properti-properti dalam objek. Ini memberikan kemudahan dalam menyalin, menggabungkan, atau mengganti elemen-elemen atau properti-properti tersebut.
+
+- ### Spread Operator pada Array:
+
+  - Menggabungkan Dua Array:
+    <details>
+    <summary>contoh kode</summary>
+
+    ```javaScript
+    const array1 = [1, 2, 3];
+    const array2 = [4, 5, 6];
+
+    const combinedArray = [...array1, ...array2];
+    console.log(combinedArray);
+    // Output: [1, 2, 3, 4, 5, 6]
+    ```
+
+    </details>
+
+  - Menyalin Array:
+    <details>
+    <summary>contoh kode</summary>
+
+    ```javaScript
+    const originalArray = [7, 8, 9];
+    const copiedArray = [...originalArray];
+    console.log(copiedArray);
+    // Output: [7, 8, 9]
+    ```
+
+    </details>
+
+  - Menggunakan dalam Argument Fungsi:
+    <details>
+    <summary>contoh kode</summary>
+
+    ```javaScript
+    const numbers = [1, 2, 3];
+
+    function sum(a, b, c) {
+      return a + b + c;
+    }
+
+    const result = sum(...numbers);
+    console.log(result);
+    // Output: 6
+    ```
+
+    </details>
+
+- ### Spread Operator pada Objek :
+  penggunaan spread operator pada object sama saja dengan array di atas.

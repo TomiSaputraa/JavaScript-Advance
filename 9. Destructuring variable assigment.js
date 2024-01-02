@@ -51,4 +51,4 @@ const person = { firstName: "John", lastName: "Doe" };
 const { firstName: fName, lastName: lName } = person;
 // Sekarang, fName = 'John' dan lName = 'Doe'
 
-// console.log(fName);
+console.log(fName);
