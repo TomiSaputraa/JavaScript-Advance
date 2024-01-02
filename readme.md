@@ -627,3 +627,31 @@ Spread operator (...) dalam JavaScript digunakan untuk memecah (spread) elemen-e
 
 - ### Spread Operator pada Objek :
   penggunaan spread operator pada object sama saja dengan array di atas.
+
+# 13. Rest Parameter
+
+Rest parameter adalah fitur dalam JavaScript yang memungkinkan Anda mengumpulkan sisa parameter pada sebuah fungsi menjadi array. Rest parameter ditandai dengan menggunakan tanda titik tiga (...) diikuti dengan nama parameter. Rest parameter hanya boleh ditempatkan sebagai parameter terakhir dalam daftar parameter fungsi.
+
+  <details>
+  <summary>contoh kode</summary>
+
+```javaScript
+function sum(...numbers) {
+// 'numbers' adalah rest parameter yang mengumpulkan sisa argument ke dalam array
+return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4, 5));
+// Output: 15
+
+// Contoh lain
+function concatenate(separator, ...strings) {
+// 'separator' adalah parameter biasa, sedangkan 'strings' adalah rest parameter
+return strings.join(separator);
+}
+
+console.log(concatenate('-', 'apple', 'banana', 'orange'));
+// Output: 'apple-banana-orange'
+```
+
+  </details>

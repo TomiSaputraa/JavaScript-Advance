@@ -1,46 +1,47 @@
-// Spread operator :
-// memecah (expand/unpack) iterable element menjadi single element
+// Rest parameter
 
-// const mhs = ["tomi", "andi", "arif"];
+// function myFunc(a, b, ...myArgs) {
+//   // return `${a} ${b} ${myArgs}`;
 
-// console.log(...mhs[0]);
+//   // ubah argument menjadi array
+//   // return Array.from(arguments);
 
-// contoh penggunaan :
-
-// 1. penggabungan array
-// const mhs = ["tomi", "andi", "arif"];
-// const dosen = ["arif", "atom", "orang"];
-
-// const orang = [...mhs, "aji", ...dosen];
-
-// dengan concat susah menambahkan array baru seperti aji di atas
-// // const orang = mhs.concat(dosen);
-// console.log(orang);
-
-// Mengcopy array
-
-const mhs = ["tomi", "andi", "arif"];
-// const mhs1 = mhs;
-// mhs1[0] = "anto";
-
-const mhs1 = [...mhs];
-mhs1[0] = "anto";
-
-// console.log(mhs1);
-
-const limhs = document.querySelectorAll("li");
-
-// const mhsnew = [];
-
-// for (let i = 0; i < limhs.length; i++) {
-//   mhsnew.push(limhs[i].textContent);
+//   return [...arguments];
 // }
 
-const mhsnew = [...limhs].map((m) => m.textContent);
+// console.log(myFunc(1, 2, 3, 4, 5));
 
-console.log(mhsnew);
+// function jumlahkan(...angka) {
+//   // let total = 0;
 
-const nama = document.querySelector(".namas");
-const huruf = [...nama.textContent].map((h) => `<span>${h}</span>`).join("");
+//   // for (let n of angka) {
+//   //   total += n;
+//   // }
 
-nama.innerHTML = huruf;
+//   // return total;
+
+//   // atau di refacroting
+//   return angka.reduce((accu, curr) => accu + curr);
+// }
+
+// console.log(jumlahkan(1, 2, 3, 4, 5));
+
+// Array destructuring
+const kelompok = ["tomi", "andi", "arif", "anton"];
+
+const [ketua, wakil, ...anggota] = kelompok;
+
+console.log(anggota);
+
+// Object destructuring
+const team = {
+  pm: "tomi",
+  frontend: "arif",
+  frontend2: "anto",
+  backend: "rizal",
+  devOps: "akari",
+};
+
+const { pm, ...pekerja } = team;
+
+console.log(pekerja);
