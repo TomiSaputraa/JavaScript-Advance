@@ -655,3 +655,23 @@ console.log(concatenate('-', 'apple', 'banana', 'orange'));
 ```
 
   </details>
+
+# 14. Asynchronus
+
+Asynchronous JavaScript adalah paradigma pemrograman di mana operasi dapat dijalankan secara independen dari urutan eksekusi. Ini memungkinkan eksekusi kode untuk melanjutkan ke operasi berikutnya tanpa harus menunggu operasi sebelumnya selesai. Beberapa contoh operasi asinkron di JavaScript melibatkan I/O (Input/Output), seperti membaca atau menulis file, pengambilan data dari server, atau menanggapi interaksi pengguna.
+
+- Konsep :
+
+  - Thread : menjalankan task sesuai jumlah thread. ex : 1 thread menjanlankan 1 task secara bergantian, sedangkan multi thread akan menjanlankan task secara bersamaan.
+  - Blocking(Blokir) : akan menjalankan task2 selanjutnya jika task1 sebelumnya sudah berhasil jalan
+  - Non-blocking(Non Blokir) : walaupun task1 belum beres task1...dst akan di eksekusi
+
+- Istilah :
+
+  - Asynchronus + Single-threaded = Concureency
+  - Asynchronus + Multi-threaded = Parralelism
+
+- Kesimpulan :
+  - single dan multi thread = lingkungan eksekusi 'task'
+  - blocking dan non blocking = teknik ngoding (IO related)
+  - synchronus dan asynchronus = teknik ngoding (HTTP request related)
