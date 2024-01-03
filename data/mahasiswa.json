@@ -1,0 +1,20 @@
+[
+    {
+        "nama": "tomi saputra",
+        "nim": 80202820,
+        "email": "tomi@gmail.com",
+        "idDosenWali": 1
+    },
+      {
+        "nama": "arif saputra",
+        "nim": 80202720,
+        "email": "arif@gmail.com",
+        "idDosenWali": 2
+      },
+      {
+        "nama": "andi saputra",
+        "nim": 80202420,
+        "email": "andi@gmail.com",
+        "idDosenWali": 3
+    }
+]

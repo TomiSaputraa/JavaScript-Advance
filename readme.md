@@ -675,3 +675,38 @@ Asynchronous JavaScript adalah paradigma pemrograman di mana operasi dapat dijal
   - single dan multi thread = lingkungan eksekusi 'task'
   - blocking dan non blocking = teknik ngoding (IO related)
   - synchronus dan asynchronus = teknik ngoding (HTTP request related)
+
+untuk melihat bagaimana javascript bekerja secara asynchronus di engine cek disini : http://latentflip.com/
+
+15. Callback
+
+Callback adalah fungsi yang diteruskan sebagai argumen ke fungsi lain, dan akan dijalankan setelah operasi yang dilakukan oleh fungsi tersebut selesai. Fungsi yang menerima callback akan memanggil callback ketika operasinya selesai, mengizinkan eksekusi asynchronous.
+
+- Contoh Callback:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  function fetchData(callback) {
+  // Simulasi operasi asynchronous (contoh: mengambil data dari server setelah 2 detik)
+  setTimeout(() => {
+    const data = 'Data berhasil diambil!';
+    callback(data);
+    }, 2000);
+  }
+
+  function processResult(result) {
+    console.log(result);
+  }
+
+  // Memanggil fetchData dengan callback
+  fetchData(processResult);
+  // Output (setelah 2 detik): Data berhasil diambil!
+
+  ```
+
+  </details>
+
+- Callback Hell (Pyramid of Doom):
+
+  Callback Hell terjadi ketika callback bersarang dalam callback dalam sebuah struktur piramida yang sulit dibaca. Ini sering terjadi saat bekerja dengan banyak operasi asynchronous yang saling bergantung.
