@@ -1,3 +1,5 @@
+**_Note_** : untuk contoh kode bisa dari teks dibawah / dari file di repository ini.
+
 # 1. Object
 
 - Object.create
