@@ -711,7 +711,7 @@ Callback adalah fungsi yang diteruskan sebagai argumen ke fungsi lain, dan akan 
 
   Callback Hell terjadi ketika callback bersarang dalam callback dalam sebuah struktur piramida yang sulit dibaca. Ini sering terjadi saat bekerja dengan banyak operasi asynchronous yang saling bergantung.
 
-# Promise
+# 15. Promise
 
 Promise adalah objek di JavaScript yang digunakan untuk merepresentasikan hasil atau kegagalan operasi asynchronous. Ini membantu mengatasi masalah "callback hell" atau piramida callback yang dapat terjadi saat menangani banyak operasi asynchronous yang bersarang.
 
@@ -834,7 +834,7 @@ fetchData()
 
   </details>
 
-# 17. Fetch
+# 16. Fetch
 
 Dalam konteks JavaScript, fungsi fetch digunakan untuk melakukan permintaan HTTP (seperti mengambil data dari server) secara asynchronous. Fungsi ini mengembalikan objek Promise yang mewakili respons dari permintaan HTTP tersebut. Berikut adalah penjelasan singkat dan contoh penggunaan fetch:
 
