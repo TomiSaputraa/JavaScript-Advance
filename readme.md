@@ -710,3 +710,128 @@ Callback adalah fungsi yang diteruskan sebagai argumen ke fungsi lain, dan akan 
 - Callback Hell (Pyramid of Doom):
 
   Callback Hell terjadi ketika callback bersarang dalam callback dalam sebuah struktur piramida yang sulit dibaca. Ini sering terjadi saat bekerja dengan banyak operasi asynchronous yang saling bergantung.
+
+# Promise
+
+Promise adalah objek di JavaScript yang digunakan untuk merepresentasikan hasil atau kegagalan operasi asynchronous. Ini membantu mengatasi masalah "callback hell" atau piramida callback yang dapat terjadi saat menangani banyak operasi asynchronous yang bersarang.
+
+## Membuat Promise:
+
+Promise memiliki dua keadaan: fulfilled (berhasil) atau rejected (gagal). Anda dapat membuat Promise dengan menggunakan constructor Promise yang memiliki dua argumen: fungsi resolver dan fungsi rejector.
+
+  <details>
+  <summary>contoh kode</summary>
+
+```javaScript
+const fetchData = new Promise((resolve, reject) => {
+// Simulasi operasi asynchronous (contoh: mengambil data dari server setelah 2 detik)
+setTimeout(() => {
+  const success = true;
+
+  if (success) {
+    const data = 'Data berhasil diambil!';
+    resolve(data);  // Memanggil resolve jika operasi berhasil
+  } else {
+    reject(new Error('Gagal mengambil data'));  // Memanggil reject jika operasi gagal
+  }
+  }, 2000);
+});
+
+```
+
+  </details>
+
+## Menggunakan Promise:
+
+- .then() untuk Penanganan Hasil:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  fetchData.then((result) => {
+  console.log(result);
+  });
+  // Output (setelah 2 detik): Data berhasil diambil!
+  ```
+
+  </details>
+
+- .catch() untuk Penanganan Kesalahan:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  fetchData
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });
+  // Output (jika gagal): Gagal mengambil data
+  ```
+
+  </details>
+
+- .finally() untuk Kode yang Selalu Dieksekusi:
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javaScript
+  fetchData
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    console.error(error.message);
+  })
+  .finally(() => {
+    console.log('Operasi selesai.');
+  });
+  // Output (setelah 2 detik): Data berhasil diambil! (dan kemudian) Operasi selesai.
+  ```
+
+  </details>
+
+## Chaining Promises:
+
+Anda dapat menggabungkan beberapa Promise menggunakan chaining (mengantre) untuk mengatasi "callback hell".
+
+<details>
+  <summary>contoh kode</summary>
+
+```javaScript
+const fetchData = () => {
+return new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const success = true;
+    if (success) {
+      const data = 'Data berhasil diambil!';
+      resolve(data);
+    } else {
+      reject(new Error('Gagal mengambil data'));
+    }
+  }, 2000);
+});
+};
+
+const processData = (data) => {
+return new Promise((resolve) => {
+  setTimeout(() => {
+    const processedData = `Data yang diproses: ${data}`;
+    resolve(processedData);
+  }, 2000);
+});
+};
+
+fetchData()
+.then((result) => processData(result))
+.then((finalResult) => console.log(finalResult))
+.catch((error) => console.error(error.message));
+// Output (setelah 4 detik): Data yang diproses: Data berhasil diambil!
+
+```
+
+  </details>
+
+# 17. Fetch
