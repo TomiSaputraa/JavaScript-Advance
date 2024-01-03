@@ -835,3 +835,113 @@ fetchData()
   </details>
 
 # 17. Fetch
+
+Dalam konteks JavaScript, fungsi fetch digunakan untuk melakukan permintaan HTTP (seperti mengambil data dari server) secara asynchronous. Fungsi ini mengembalikan objek Promise yang mewakili respons dari permintaan HTTP tersebut. Berikut adalah penjelasan singkat dan contoh penggunaan fetch:
+
+Penjelasan:
+
+- a. Asynchronous (Asynchronous Operation): fetch bekerja secara asynchronous, sehingga tidak akan memblokir eksekusi kode selanjutnya. Ini memungkinkan agar halaman web tetap responsif tanpa harus menunggu permintaan HTTP selesai.
+
+- b. Promise-Based: Fungsi fetch mengembalikan objek Promise, yang memungkinkan Anda menangani respons asinkron dengan menggunakan .then() dan .catch().
+
+fetch(resources, init) :
+
+- resources :
+
+  - url : alamat dari sumber yang kita akan ambil
+  - Request Object : representasi permintaan sumber
+
+- init(optional) :
+
+  konfigurasi tambahan pada sebuah request berbentuk object
+
+  - method
+  - header
+  - body
+  - mode
+  - cache
+  - referrer
+  - referrerPolicy
+  - integrity
+  - keepalive
+  - signal
+
+- response :
+
+  hasil dari fetch, berupa promise.
+
+  yang memiliki property :
+
+  - headers
+  - ok
+  - redirected
+  - status
+  - statusText
+  - type
+  - url
+  - body
+
+  method :
+
+  - clone()
+  - error()
+  - redirected()
+  - blob()
+  - formData()
+  - json()
+  - text()
+
+<details>
+<summary>contoh kode</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Example</title>
+  </head>
+  <body>
+    <h1>Fetch Example</h1>
+    <div id="result"></div>
+
+    <script>
+      // URL dari JSONPlaceholder API
+      const apiUrl = "https://jsonplaceholder.typicode.com/todos/1";
+
+      // Fungsi untuk menampilkan hasil ke dalam elemen dengan id "result"
+      function displayResult(data) {
+        const resultElement = document.getElementById("result");
+        resultElement.innerHTML = `
+        <p>User ID: ${data.userId}</p>
+        <p>Title: ${data.title}</p>
+        <p>Completed: ${data.completed ? "Yes" : "No"}</p>
+      `;
+      }
+
+      // Menggunakan fetch untuk mengambil data dari API
+      fetch(apiUrl)
+        .then((response) => {
+          // Periksa apakah respons berhasil (status code 200 OK)
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+
+          // Ubah respons menjadi objek JSON
+          return response.json();
+        })
+        .then((data) => {
+          // Tampilkan hasil menggunakan fungsi displayResult
+          displayResult(data);
+        })
+        .catch((error) => {
+          // Tangani kesalahan jika terjadi
+          console.error("There was a problem with the fetch operation:", error);
+        });
+    </script>
+  </body>
+</html>
+```
+
+</details>
