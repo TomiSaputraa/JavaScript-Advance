@@ -997,9 +997,13 @@ Berikut adalah penjelasan lebih rinci tentang async/await:
     </details>
 
 4.  Berjalan Secara Berurutan:
+
     kata kunci await dan melanjutkan setelah Promise diselesaikan.
+
 5.  Menggabungkan dengan Promise:
+
     async/await dapat bekerja bersama dengan Promise. Fungsi yang menggunakan async akan selalu mengembalikan Promise, dan nilai yang dikembalikan oleh await adalah nilai yang diselesaikan oleh Promise tersebut.
+
 6.  Contoh Penggunaan Async/Await:
     <details>
     <summary>Contoh penggunaan</summary>
@@ -1052,6 +1056,7 @@ Error handling (penanganan kesalahan) dalam JavaScript dilakukan untuk mengatasi
      </details>
 
 2. Throw Statement:
+
    Kata kunci throw digunakan untuk melemparkan (throw) pengecualian secara manual. Ini berguna jika Anda ingin menunjukkan bahwa suatu kondisi tidak dapat dipenuhi dan perlu mengecualikan program.
 
     <details>
@@ -1069,6 +1074,7 @@ Error handling (penanganan kesalahan) dalam JavaScript dilakukan untuk mengatasi
      </details>
 
 3. Custom Error Objects:
+
    Anda dapat membuat objek kesalahan kustom (custom error objects) dengan mewarisi dari objek Error. Ini memungkinkan Anda memberikan informasi tambahan tentang kesalahan yang terjadi.
 
     <details>
@@ -1093,6 +1099,7 @@ Error handling (penanganan kesalahan) dalam JavaScript dilakukan untuk mengatasi
     </details>
 
 4. Global Error Handling (window.onerror):
+
    Di lingkungan browser, Anda dapat menggunakan event window.onerror untuk menangani kesalahan global yang tidak tertangkap di blok try-catch. Ini memungkinkan Anda untuk memonitor dan melaporkan kesalahan global.
 
     <details>
