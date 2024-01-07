@@ -745,7 +745,7 @@ setTimeout(() => {
 
 ## Menggunakan Promise:
 
-- .then() untuk Penanganan Hasil:
+- .then() untuk Penanganan Hasil (resolve):
   <details>
   <summary>contoh kode</summary>
 
@@ -758,7 +758,7 @@ setTimeout(() => {
 
   </details>
 
-- .catch() untuk Penanganan Kesalahan:
+- .catch() untuk Penanganan Kesalahan (reject):
   <details>
   <summary>contoh kode</summary>
 
@@ -947,3 +947,86 @@ fetch(resources, init) :
 ```
 
 </details>
+
+# 17. Async Await
+
+async/await adalah fitur dalam JavaScript yang memudahkan penanganan operasi asinkron dengan cara yang lebih bersih dan lebih mudah dibaca dibandingkan dengan penggunaan callback atau Promise langsung.
+
+Berikut adalah penjelasan lebih rinci tentang async/await:
+
+1.  Fungsi Async:
+     <details>
+     <summary>Contoh penggunaan</summary>
+
+    ```javascript
+    async function exampleAsyncFunction() {
+      // ...
+    }
+    ```
+
+     </details>
+
+2.  Kata Kunci Await:
+    <details>
+    <summary>Contoh penggunaan</summary>
+
+    ```javascript
+    async function exampleAsyncFunction() {
+      const result = await someAsyncOperation();
+      console.log(result);
+    }
+    ```
+
+    </details>
+
+3.  Penanganan Error:
+    <details>
+    <summary>Contoh penggunaan</summary>
+
+    ```javascript
+    async function exampleAsyncFunction() {
+      try {
+        const result = await someAsyncOperation();
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    ```
+
+    </details>
+
+4.  Berjalan Secara Berurutan:
+    kata kunci await dan melanjutkan setelah Promise diselesaikan.
+5.  Menggabungkan dengan Promise:
+    async/await dapat bekerja bersama dengan Promise. Fungsi yang menggunakan async akan selalu mengembalikan Promise, dan nilai yang dikembalikan oleh await adalah nilai yang diselesaikan oleh Promise tersebut.
+6.  Contoh Penggunaan Async/Await:
+    <details>
+    <summary>Contoh penggunaan</summary>
+
+    ```javascript
+    function cobaPromise() {
+      return new Promise((resolve, reject) => {
+        const waktu = 7000;
+        if (waktu < 5000) {
+          setTimeout(() => {
+            resolve("selesai");
+          }, waktu);
+        } else {
+          reject("kelamaan");
+        }
+      });
+    }
+    async function cobaAsync() {
+      // try untuk resolve
+      try {
+        const coba = await cobaPromise();
+        console.log(coba);
+      } catch (error) {
+        // catch untuk reject
+        console.error(error);
+      }
+    }
+    ```
+
+    </details>
