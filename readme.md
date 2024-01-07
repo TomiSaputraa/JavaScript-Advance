@@ -229,7 +229,7 @@ filter, map, dan reduce adalah metode yang ditemukan pada objek array di JavaScr
 
 - 2.Map
 
-  Metode map digunakan untuk membuat array baru dengan hasil dari pemanggilan fungsi tertentu pada setiap elemen array.
+  Metode map digunakan untuk membuat array baru dengan hasil dari pemanggilan fungsi tertentu pada setiap elemen array. Metode ini tidak mengubah array aslinya, tetapi mengembalikan array baru yang berisi hasil transformasi.
 
   <details>
   <summary>contoh kode</summary>
@@ -1028,5 +1028,116 @@ Berikut adalah penjelasan lebih rinci tentang async/await:
       }
     }
     ```
+
+    </details>
+
+# 18. Error Handling
+
+Error handling (penanganan kesalahan) dalam JavaScript dilakukan untuk mengatasi potensi kesalahan atau pengecualian (exception) yang dapat terjadi selama eksekusi program. Ada beberapa cara untuk menangani kesalahan di JavaScript:
+
+1. Try-Catch Statement:
+     <details>
+     <summary>Contoh kode</summary>
+
+   ```javascript
+   try {
+     // Potensial kode yang dapat menimbulkan kesalahan
+     // ...
+   } catch (error) {
+     // Tangani kesalahan di sini
+     console.error(error);
+   }
+   ```
+
+     </details>
+
+2. Throw Statement:
+   Kata kunci throw digunakan untuk melemparkan (throw) pengecualian secara manual. Ini berguna jika Anda ingin menunjukkan bahwa suatu kondisi tidak dapat dipenuhi dan perlu mengecualikan program.
+
+    <details>
+     <summary>Contoh kode</summary>
+
+   ```javascript
+   function divide(a, b) {
+     if (b === 0) {
+       throw new Error("Cannot divide by zero");
+     }
+     return a / b;
+   }
+   ```
+
+     </details>
+
+3. Custom Error Objects:
+   Anda dapat membuat objek kesalahan kustom (custom error objects) dengan mewarisi dari objek Error. Ini memungkinkan Anda memberikan informasi tambahan tentang kesalahan yang terjadi.
+
+    <details>
+    <summary>Contoh kode</summary>
+
+   ```javascript
+   class MyCustomError extends Error {
+     constructor(message) {
+       super(message);
+       this.name = "MyCustomError";
+     }
+   }
+
+   try {
+     throw new MyCustomError("This is a custom error");
+   } catch (error) {
+     console.error(error.name); // Output: MyCustomError
+     console.error(error.message); // Output: This is a custom error
+   }
+   ```
+
+    </details>
+
+4. Global Error Handling (window.onerror):
+   Di lingkungan browser, Anda dapat menggunakan event window.onerror untuk menangani kesalahan global yang tidak tertangkap di blok try-catch. Ini memungkinkan Anda untuk memonitor dan melaporkan kesalahan global.
+
+    <details>
+    <summary>Contoh penggunaan</summary>
+
+   ```javascript
+   window.onerror = function (message, source, lineno, colno, error) {
+     console.error("Global error:", message);
+     return true; // Memberi tahu browser bahwa kesalahan telah ditangani
+   };
+   ```
+
+    </details>
+
+5. Promise Error Handling:
+   <details>
+    <summary>Contoh penggunaan</summary>
+
+   ```javascript
+   somePromiseFunction()
+     .then((result) => {
+       // Lakukan sesuatu dengan hasil
+     })
+     .catch((error) => {
+       // Tangani kesalahan
+       console.error(error);
+     });
+   ```
+
+    </details>
+
+6. Async/Await Error Handling:
+    <details>
+     <summary>Contoh penggunaan</summary>
+
+   ```javascript
+   async function exampleAsyncFunction() {
+     try {
+       const result = await someAsyncOperation();
+       console.log(result);
+     } catch (error) {
+       // Tangani kesalahan
+       console.error(error);
+     }
+   }
+   ```
 
     </details>

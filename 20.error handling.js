@@ -1,15 +1,41 @@
+// Error handling
+
+// 1. Error handling : Promise
+// .then() : untuk resolve
+// .catch() : untuk reject atau error
+
+// 2. Error handling : Reject
+// try : untuk resolve
+// catch() : untuk reject
+
+// Contoh dari project movie sebelumnya
+
 const searchButton = document.querySelector(".search-button");
 searchButton.addEventListener("click", async function () {
-  const inputKeyword = document.querySelector(".input-keyword");
-
-  const movies = await getMovies(inputKeyword.value);
-  updateUi(movies);
+  try {
+    const inputKeyword = document.querySelector(".input-keyword");
+    const movies = await getMovies(inputKeyword.value);
+    updateUi(movies);
+  } catch (error) {
+    alert(error);
+  }
 });
 
 function getMovies(keyword) {
   return fetch("http://www.omdbapi.com/?apikey=1b412ccf&s=" + keyword)
-    .then((res) => res.json())
-    .then((res) => res.Search);
+    .then((res) => {
+      // contoh error handling lalu dikembalikan errornya ke try catch di atas
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+      return res.json();
+    })
+    .then((res) => {
+      if (res.Response === "False") {
+        throw new Error(res.Error);
+      }
+      return res.Search;
+    });
 }
 
 function updateUi(movies) {
@@ -24,15 +50,15 @@ function updateUi(movies) {
 // Event binding
 // yaitu memberi event ke elemen yang awal nya belum ada, tapi ketika dia ada event nya tetap bisa berjalan
 document.addEventListener("click", async function (e) {
-  // e berisi semua elemen dari event yang di click
-  // e akan mengambil semua input dari user
-  //   console.log(e.target);
-
-  if (e.target.classList.contains("modal-detail-button")) {
-    // console.log(e.target.dataset);
-    const imdbID = e.target.dataset.imdbid;
-    const movieDetail = await getMovieDetails(imdbID);
-    updateUiDetail(movieDetail);
+  try {
+    if (e.target.classList.contains("modal-detail-button")) {
+      // console.log(e.target.dataset);
+      const imdbID = e.target.dataset.imdbid;
+      const movieDetail = await getMovieDetails(imdbID);
+      updateUiDetail(movieDetail);
+    }
+  } catch (error) {
+    alert(error);
   }
 });
 
@@ -93,48 +119,3 @@ function showDetails(res) {
       </div>
       `;
 }
-
-// Versi chat gpt
-// const searchButton = document.querySelector(".search-button");
-
-// searchButton.addEventListener("click", async function () {
-//   const inputKeyword = document.querySelector(".input-keyword");
-//   const movies = await getMovies(inputKeyword.value);
-//   updateUi(movies);
-// });
-
-// async function getMovies(keyword) {
-//   const response = await fetch(
-//     `http://www.omdbapi.com/?apikey=1b412ccf&s=${keyword}`
-//   );
-//   const data = await response.json();
-//   return data.Search || [];
-// }
-
-// function updateUi(movies) {
-//   const cards = movies.map(showCards).join("");
-//   const movieContainer = document.querySelector(".movie-container");
-//   movieContainer.innerHTML = cards;
-// }
-
-// document.addEventListener("click", async function (e) {
-//   if (e.target.classList.contains("modal-detail-button")) {
-//     const imdbID = e.target.dataset.imdbid;
-//     const movieDetail = await getMovieDetails(imdbID);
-//     updateUiDetail(movieDetail);
-//   }
-// });
-
-// async function getMovieDetails(imdbID) {
-//   const response = await fetch(
-//     `http://www.omdbapi.com/?apikey=1b412ccf&i=${imdbID}`
-//   );
-//   const data = await response.json();
-//   return data;
-// }
-
-// function updateUiDetail(movieDetail) {
-//   const details = showDetails(movieDetail);
-//   const modalBody = document.querySelector(".modal-body");
-//   modalBody.innerHTML = details;
-// }
