@@ -795,6 +795,40 @@ setTimeout(() => {
 
   </details>
 
+- Promise.all() menunggu semua selesai baru run :
+
+  <details>
+  <summary>contoh kode</summary>
+
+  ```javascript
+  const fetchData = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve([
+        {
+          nama: "tomi",
+          umur: 20,
+        },
+      ]);
+    }, 2000);
+  });
+
+  const desa = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve([
+        {
+          nimi: "anto",
+          imir: 20,
+        },
+      ]);
+    }, 500);
+  });
+
+  desa.then((res) => console.log(res));
+  fetchData.then((res) => console.log(res));
+  ```
+
+  </details>
+
 ## Chaining Promises:
 
 Anda dapat menggabungkan beberapa Promise menggunakan chaining (mengantre) untuk mengatasi "callback hell".

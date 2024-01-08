@@ -93,6 +93,7 @@ const cuaca = new Promise((resolve) => {
 
 // cuaca.then((res) => console.log(res));
 
+// Promise.all adalah sebuah metode di JavaScript yang digunakan untuk menangani beberapa janji (promises) secara simultan dan menghasilkan janji tunggal yang hanya akan diselesaikan jika semua janji yang diberikan telah diselesaikan. Metode ini berguna ketika Anda perlu menjalankan beberapa operasi asinkron secara paralel dan ingin menunggu sampai semuanya selesai sebelum melanjutkan.
 Promise.all([film, cuaca]).then((res) => {
   const [film, cuaca] = res;
   console.log(film);

@@ -1,7 +1,26 @@
-const namas = { nama: "andi", umur: 80, kelas: 89, ambi: "anto" };
+// Promise
 
-function getNama({ nama, umur, ...args }) {
-  return console.log(`hallo ${nama} umur ${umur}, ${args}`);
-}
+const fetchData = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve([
+      {
+        nama: "tomi",
+        umur: 20,
+      },
+    ]);
+  }, 2000);
+});
 
-getNama(namas);
+const desa = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve([
+      {
+        nimi: "anto",
+        imir: 20,
+      },
+    ]);
+  }, 500);
+});
+
+desa.then((res) => console.log(res));
+fetchData.then((res) => console.log(res));
